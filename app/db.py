@@ -9,6 +9,7 @@ DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
 Base = declarative_base()
 
+
 class User(SQLAlchemyBaseUserTableUUID, Base):
     username = Column(String(20))
 
@@ -25,7 +26,7 @@ async def create_db_and_tables():
 async def get_async_session():
     async with async_session_maker() as session:
         yield session
-        
+
 
 async def get_user_db(session: AsyncSession = Depends(get_async_session)):
     yield SQLAlchemyUserDatabase(session=session, user_table=User)
