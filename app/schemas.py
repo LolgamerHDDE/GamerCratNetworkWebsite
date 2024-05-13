@@ -14,3 +14,7 @@ class UserCreate(BaseUserCreate):
 class UserRead(BaseUserUpdate):
     username: str
     pass
+
+class UserUpdate(BaseUserUpdate):
+    username: str
+    pass
